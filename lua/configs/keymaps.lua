@@ -22,7 +22,13 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-
+--
+-- Resize with arrows
+vim.keymap.set("n", "<A-Up>", "<cmd>resize -2<CR>")
+vim.keymap.set("n", "<A-Down>", "<cmd>resize +2<CR>")
+vim.keymap.set("n", "<A-Left>", "<cmd>vertical resize -2<CR>")
+vim.keymap.set("n", "<A-Right>", "<cmd>vertical resize +2<CR>")
+--
 -- Standard Operations
 vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { desc = 'Save' })
 vim.keymap.set('n', '<leader>q', "<cmd>confirm q<cr>", { desc = 'Quit' })
