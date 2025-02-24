@@ -1,10 +1,13 @@
 local keymap = vim.keymap.set
 if vim.g.vscode then
   -- general keymaps
+  keymap({ "n", "v" }, "<leader>e", "<cmd>lua require('vscode').action('workbench.action.toggleSidebarVisibility')<CR>")
+  keymap({ "n", "v" }, "<leader>E", "<cmd>lua require('vscode').action('workbench.view.explorer')<CR>")
   keymap({ "n", "v" }, "<leader>t", "<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<CR>")
   keymap({ "n", "v" }, "<leader>b", "<cmd>lua require('vscode').action('editor.debug.action.toggleBreakpoint')<CR>")
   keymap({ "n", "v" }, "<leader>ca", "<cmd>lua require('vscode').action('editor.action.quickFix')<CR>")
   keymap({ "n", "v" }, "gr", "<cmd>lua require('vscode').action('editor.action.goToReferences')<CR>")
+  keymap({ "n", "v" }, "<leader>gg", "<cmd>lua require('vscode').action('workbench.view.scm')<CR>")
 
   -- harpoon keymaps
   keymap({ "n", "v" }, "<leader>H", "<cmd>lua require('vscode').action('vscode-harpoon.addEditor')<CR>")
