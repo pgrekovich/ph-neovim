@@ -21,3 +21,15 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("setlocal conceallevel=0")
   end,
 })
+
+
+-- Disable autoformat and diagnostics for .env files
+local group = vim.api.nvim_create_augroup("__env", {clear=true})
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = ".env",
+  group = group,
+  callback = function(args)
+    vim.b.autoformat = false
+    vim.diagnostic.disable(args.buf)
+  end
+})
