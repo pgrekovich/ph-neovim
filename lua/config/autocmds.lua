@@ -22,14 +22,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-
 -- Disable autoformat and diagnostics for .env files
-local group = vim.api.nvim_create_augroup("__env", {clear=true})
+local group = vim.api.nvim_create_augroup("__env", { clear = true })
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = ".env",
+  pattern = ".env*",
   group = group,
   callback = function(args)
     vim.b.autoformat = false
-    vim.diagnostic.disable(args.buf)
-  end
+    vim.diagnostic.enable(false, { bufnr = args.buf })
+  end,
 })
